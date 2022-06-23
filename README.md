@@ -1,12 +1,11 @@
-ODU-SD-04 Milestone Project: Web-Browser Mario Game
-
+ODU-SD-04 Milestone Project: Web-Browser DX-Ball (Brick Breaker Game)
 Project Description
-My project here will be to make an interactive Mario game that is accessible through your web-browsers. It will be the same as the orginal game that we know and love. Of course, as this is a beginners project it will not have all the functionality of the more popular Mario games you may be familiar with but my goal is to get as close to that as possible within two weeks.
+My project here will be to make an interactive Brick Breaker game inspired by the old 90s game DX-Ball that is accessible through your web-browsers. It will be the same as the orginal game that we know and love. Of course, as this is a beginners project it will not have all the functionality of the original game you may be familiar with but my goal is to get as close to that as possible.
 
 Game Logic
-The game will consist of a number of levels that you can interact with different enemies and blocks and an area to progress to the next level.
-There will be one player vs a group of enemy monsters.
-There will be different sprite models of mario and other mario world objects
+The game will consist of a number of levels that you can interact with and break different types of blocks.
+There will be one player vs other blocks
+There will be different models and colors.
 The code will be written with HTML, CSS, JavaScript
 
 The pseudocode should describe in plain, simple language the logic of the game.

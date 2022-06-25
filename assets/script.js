@@ -15,7 +15,23 @@ class Block {
   
 
 const blocks = [
-    new Block(10,270)
+  new Block(10, 570),
+  new Block(120, 570),
+  new Block(230, 570),
+  new Block(340, 570),
+  new Block(450, 570),
+  new Block(10, 540),
+  new Block(120, 540),
+  new Block(230, 540),
+  new Block(340, 540),
+  new Block(450, 540),
+  new Block(10, 510),
+  new Block(120, 510),
+  new Block(230, 510),
+  new Block(340, 510),
+  new Block(450, 510),
+
+    
 ]
 
 

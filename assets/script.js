@@ -30,6 +30,7 @@ const blocks = [
   new Block(230, 510),
   new Block(340, 510),
   new Block(450, 510),
+  new Block(210, 510),
 
     
 ]

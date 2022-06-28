@@ -6,6 +6,11 @@ const blockHeight = 20
 const playerStart = [230, 10]
 let currentPosition = playerStart
 
+
+const ballStart = [270, 40]
+let ballCurrentPosition = ballStart
+
+
 // Blocks
 class Block {
     constructor(xAxis, yAxis) {
@@ -72,14 +77,14 @@ function movePlayer(e) {
         console.log(currentPosition[0] > 0)
         drawPlayer()   
       }
-      break
+      break;
     case 'ArrowRight':
       if (currentPosition[0] > 0) {
         currentPosition[0] += 10
         console.log(currentPosition[0])
         drawPlayer()   
       }
-      break
+      break;
   }
 }
 document.addEventListener('keydown', movePlayer)
@@ -87,5 +92,11 @@ document.addEventListener('keydown', movePlayer)
 
 
 
+const ball = document.createElement('div')
+ball.classList.add('ball')
+grid.appendChild(ball)
+ball.style.left = ballCurrentPosition[0] + 'px'
+ball.style.bottom = ballCurrentPosition[1] + 'px'
+drawball()
 
  

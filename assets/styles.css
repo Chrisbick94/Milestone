@@ -13,3 +13,11 @@
     height: 20px;
     background-color: rgb(238, 109, 4);
   }
+
+
+  .player {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: rgb(8, 180, 37);
+  }

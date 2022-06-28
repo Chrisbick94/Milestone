@@ -3,6 +3,9 @@ const blockWidth = 100
 const blockHeight = 20
 
 
+const playerStart = [230, 10]
+let currentPosition = playerStart
+
 // Blocks
 class Block {
     constructor(xAxis, yAxis) {
@@ -30,7 +33,7 @@ const blocks = [
   new Block(230, 510),
   new Block(340, 510),
   new Block(450, 510),
-  new Block(210, 510),
+  new Block(210, 310),
 
     
 ]
@@ -48,3 +51,41 @@ function addBlocks() {
 }
 addBlocks()
 
+
+
+const player = document.createElement('div')
+player.classList.add('player')
+drawPlayer()
+grid.appendChild(player)
+
+
+function drawPlayer() {
+  player.style.left = currentPosition[0] + 'px'
+  player.style.bottom = currentPosition[1] + 'px'
+}
+
+function movePlayer(e) {
+  switch (e.key) {
+    case 'ArrowLeft':
+      if (currentPosition[0] > 0) {
+        currentPosition[0] -= 10
+        console.log(currentPosition[0] > 0)
+        drawPlayer()   
+      }
+      break
+    case 'ArrowRight':
+      if (currentPosition[0] > 0) {
+        currentPosition[0] += 10
+        console.log(currentPosition[0])
+        drawPlayer()   
+      }
+      break
+  }
+}
+document.addEventListener('keydown', movePlayer)
+
+
+
+
+
+ 

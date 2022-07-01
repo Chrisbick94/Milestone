@@ -1,7 +1,12 @@
 const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
-
+const boardWidth = 560
+const ballDiameter = 20
+const boardHeight = 600
+let timerID
+let xDirection = 2
+let yDirection = 2
 
 const playerStart = [230, 10]
 let currentPosition = playerStart
@@ -69,6 +74,13 @@ function drawPlayer() {
   player.style.bottom = currentPosition[1] + 'px'
 }
 
+function drawBall() {
+   ball.style.left = ballCurrentPosition[0] + 'px'
+   ball.style.bottom = ballCurrentPosition[1] + 'px'
+}
+
+
+
 function movePlayer(e) {
   switch (e.key) {
     case 'ArrowLeft':
@@ -97,6 +109,36 @@ ball.classList.add('ball')
 grid.appendChild(ball)
 ball.style.left = ballCurrentPosition[0] + 'px'
 ball.style.bottom = ballCurrentPosition[1] + 'px'
-drawball()
+drawBall()
 
- 
+
+function moveBall() {
+    ballCurrentPosition[0] += xDirection
+    ballCurrentPosition[1] += yDirection
+    drawBall()
+    checkForCollisions()
+}
+
+timerID = setInterval(moveBall, 30) 
+
+
+// collisions with walls
+
+function checkForCollisions() {
+  if (
+    ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
+    ballCurrentPosition[1] >= (boardHeight - ballDiameter)
+    ) {
+    changeDirection()
+  }
+}
+
+function changeDirection() {
+  if (xDirection === 2 && yDirection ===2) {
+    xDirection = -2
+    return
+  }
+
+
+}
+

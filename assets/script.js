@@ -85,14 +85,14 @@ function movePlayer(e) {
   switch (e.key) {
     case 'ArrowLeft':
       if (currentPosition[0] > 0) {
-        currentPosition[0] -= 15
+        currentPosition[0] -= 10
         console.log(currentPosition[0] > 0)
         drawPlayer()   
       }
       break;
     case 'ArrowRight':
-      if (currentPosition[0] > 0) {
-        currentPosition[0] += 15
+      if (currentPosition[0] <= 560 - 110) {
+        currentPosition[0] += 10
         console.log(currentPosition[0])
         drawPlayer()   
       }
@@ -117,6 +117,8 @@ function moveBall() {
     ballCurrentPosition[1] += yDirection
     drawBall()
     checkForCollisions()
+    gameover()
+    
 }
 
 timerID = setInterval(moveBall, 10) 
@@ -171,11 +173,12 @@ function checkForCollisions() {
 
 
 //GAME OVER!
+function gameover(){
 if (ballCurrentPosition[1] <= 0) {
   clearInterval(timerID)
   score.innerHTML = 'GAME OVER!!'
   document.removeEventListener('keydown', moveUser)
-}
+}}
 
 
 

@@ -1,10 +1,10 @@
 const grid = document.querySelector('.grid')
+const score = document.querySelector('#scoreBoard')
 const blockWidth = 100
 const blockHeight = 20
 const boardWidth = 560
 const ballDiameter = 20
 const boardHeight = 600
-let timerID
 let xDirection = 2
 let yDirection = 2
 
@@ -43,7 +43,7 @@ const blocks = [
   new Block(230, 510),
   new Block(340, 510),
   new Block(450, 510),
-  new Block(210, 310),
+ 
 
     
 ]
@@ -85,14 +85,14 @@ function movePlayer(e) {
   switch (e.key) {
     case 'ArrowLeft':
       if (currentPosition[0] > 0) {
-        currentPosition[0] -= 10
+        currentPosition[0] -= 15
         console.log(currentPosition[0] > 0)
         drawPlayer()   
       }
       break;
     case 'ArrowRight':
       if (currentPosition[0] > 0) {
-        currentPosition[0] += 10
+        currentPosition[0] += 15
         console.log(currentPosition[0])
         drawPlayer()   
       }
@@ -119,26 +119,82 @@ function moveBall() {
     checkForCollisions()
 }
 
-timerID = setInterval(moveBall, 30) 
+timerID = setInterval(moveBall, 10) 
 
 
 // collisions with walls
 
 function checkForCollisions() {
+  for (let i = 0; i < blocks.length; i++){
+    if
+    (
+      (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
+      ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]) 
+    )
+      {
+      const allBlocks = Array.from(document.querySelectorAll('.block'))
+      allBlocks[i].classList.remove('block')
+      blocks.splice(i,1)
+      changeDirection()}
+    }
+
+
+
+
+
+
+
   if (
-    ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
-    ballCurrentPosition[1] >= (boardHeight - ballDiameter)
+    ballCurrentPosition[0] >= (boardWidth - ballDiameter) ||
+    ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
+    ballCurrentPosition[0] <= 0
+    
     ) {
     changeDirection()
   }
+
+  {
+    if
+  (
+    (ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) &&
+    (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight ) 
+  )
+  {
+    changeDirection()
+  }
+  }
 }
 
+
+
+
+
+
+//GAME OVER!
+if (ballCurrentPosition[1] <= 0) {
+  clearInterval(timerID)
+  score.innerHTML = 'GAME OVER!!'
+  document.removeEventListener('keydown', moveUser)
+}
+
+
+
+
 function changeDirection() {
-  if (xDirection === 2 && yDirection ===2) {
+  if (xDirection === 2 && yDirection === 2) {
+    yDirection = -2
+    return
+  }
+  if (xDirection === 2 && yDirection === -2) {
     xDirection = -2
     return
   }
-
-
+  if (xDirection === -2 && yDirection === -2) {
+    yDirection = 2
+    return
+  }
+  if (xDirection === -2 && yDirection === 2) {
+    xDirection = 2
+    return
+  }
 }
-

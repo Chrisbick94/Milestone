@@ -1,4 +1,5 @@
 ODU-SD-04 Milestone Project: Web-Browser DX-Ball (Brick Breaker Game)
+https://chrisbick94.github.io/Milestone/
 Project Description
 My project here will be to make an interactive Brick Breaker game inspired by the old 90s game DX-Ball that is accessible through your web-browsers. It will be the same as the orginal game that we know and love. Of course, as this is a beginners project it will not have all the functionality of the original game you may be familiar with but my goal is to get as close to that as possible.
 
